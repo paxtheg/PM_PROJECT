@@ -1,0 +1,43 @@
+Glodea Eusebiu - 332CD
+README - Fantana Arteziana 
+
+Acest cod prezinta implementarea unei fantani arteziene cu mai multe LED-uri, buton si modul Bluetooth utilizând un Arduino. Sistemul include un afișaj OLED pentru feedback vizual. Pompa de apă și LED-urile își schimbă stările în funcție de comenzile seriale primite prin Bluetooth. Sistemul poate indica dacă pompa își mărește sau își reduce activitatea, sau dacă este într-o stare de pauză prin intermediul LED-urilor si a ecranului OLED.
+
+Componente necesare:
+Arduino UNO3 ATMega328P
+Half Breadboard
+Cabluri de conexiune
+5 rezistențe de 220 de ohmi
+2 LED-uri
+Modul cu 3 LED-uri OKY3219
+Display OLED 128x64px cu interfață I2C incorporată
+Buton
+Modul Bluetooth HC-05
+Modul tranzistor de putere IRF520 OKY3458
+Pompă de apă
+
+Dependente:
+Wire.h
+Adafruit_SH1106.h
+
+Configurația pinilor:
+led1 (LED galben variabil): Pin 5
+led2 (LED roșu variabil): Pin 3
+led3 (LED verde, tensiune în creștere): Pin 8
+led4 (LED galben, tensiune în scădere): Pin 12
+led5 (LED roșu, indicator de pauză): Pin 13
+water (Pompa de apă): Pin 6
+OLED_RESET: Pin 4
+
+Functii:
+void setup():
+Configurează comunicarea serială, inițializează pinii pentru LED-uri și pompă, și inițializează afișajul OLED. De asemenea, afișează un mesaj inițial și apoi curăță afișajul.
+
+void actiune():
+Controlează creșterea și descreșterea tensiunii pentru LED-uri și pompă, afișând mesaje corespunzătoare pe OLED. LED-urile și pompa își schimbă intensitatea treptat; se crește și scade a tensiunea.
+
+void pauza():
+Opresc pompa, afișează mesajul "PAUZĂ" pe OLED și activează LED-ul roșu de pauză, indicând că sistemul este în pauză.
+
+void loop():
+Verifică dacă sunt disponibile date pe portul serial. Dacă primește comanda '1' din Bluetooth, apelează funcția actiune(). Dacă primește comanda '0' din Bluetooth, apelează funcția pauza().
