@@ -1,6 +1,5 @@
-Glodea Eusebiu - 332CD
 README - Fantana Arteziana 
-
+Link pagina ocw - https://ocw.cs.pub.ro/courses/pm/prj2024/rvirtan/fantana-arteziana
 Acest cod prezinta implementarea unei fantani arteziene cu mai multe LED-uri, buton si modul Bluetooth utilizând un Arduino. Sistemul include un afișaj OLED pentru feedback vizual. Pompa de apă și LED-urile își schimbă stările în funcție de comenzile seriale primite prin Bluetooth. Sistemul poate indica dacă pompa își mărește sau își reduce activitatea, sau dacă este într-o stare de pauză prin intermediul LED-urilor si a ecranului OLED.
 
 Componente necesare:
